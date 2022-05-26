@@ -28,7 +28,10 @@ def get_single_song_handler(bot, update):
     if config["AUTH"]["ENABLE"]:
         authenticate(bot, update)
     get_single_song(bot, update)
-
+    
+@bot.message_handler(commands=['start'])
+def send_welcome(message):
+    bot.reply_to(message, 'Heya! 🏻')
 
 def get_single_song(bot, update):
     chat_id = update.effective_message.chat_id
